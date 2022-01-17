@@ -9,17 +9,21 @@ https://www.hackerearth.com/practice/algorithms/sorting/bubble-sort/visualize/
 function bubbleSort(arr){
     // check the first bubble to compare the values and if the right number is lesser then move it left
     // Once the comparison is made move to the next set of values and repeat
-    // Once 
     //your code here
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i + 1]){
-            let temp = arr[i + 1];
-            arr[i + 1] = arr[i];
-            arr[i] = temp;
+    for (let i=0; i<arr.length; i++){
+        for(j=0; j<arr.length-j; j++){
+            if (arr[i] > arr[i + 1] ){
+                [arr[i],arr[i+1]] = [arr[i+1], arr[i]];
+            }
         }
     }
-    return 
+    return arr
 }
+//look at the first bubble
+//if swap needs to be made then make swap
+//move to next bubble
+//first iteration will put largest number last
+//following iterations will need to go one less length than previous
+//continue until sorted least to greatest
 
-
-bubbleSort([5,7,2,9,1,4])
+console.log(bubbleSort([5,2,9,7,4,1,3]))

@@ -1,17 +1,17 @@
 // import logo from './logo.svg';
 import './App.css';
-import PersonCard from './Components/PersonCard';
+import Person from './Components/PersonCard';
 
 function App() {
   return (
     <div className="App">
-      {/* information you pass down to a componenet is called props or properties */}
-      <PersonCard firstName= {"Drak"} lastName= {"Person"} age={26} hairColor= {"Brown"}></PersonCard>
+      <Person firstName={"Jane"} lastName={"Doe"} age={45} hair={"Black"}></Person>
       <hr />
-      <PersonCard firstName= {"Mac"} lastName={"Donald"} age={18} hairColor= {"Black"}></PersonCard>
+      <Person firstName={"John"} lastName={"Smith"} age={88} hair={"Brown"}></Person>
       <hr />
-      <PersonCard firstName= {"Paige"} lastName= {"Books"} age={42} hairColor= {"Red"}></PersonCard>
-
+      <Person firstName={"Millard"} lastName={"Fillmore"} age={50} hair={"Brown"}></Person>
+      <hr />
+      <Person firstName={"Maria"} lastName={"Smith"} age={62} hair={"Brown"}></Person>
     </div>
   );
 }
