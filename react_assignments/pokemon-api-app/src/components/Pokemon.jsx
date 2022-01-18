@@ -23,9 +23,11 @@ const Pokemon=()=>{
                 pokemonList.map((pokemon, index)=>{
                     return (
                         
-                        <ul>
-                            <li className="text-capitalize font-weight-bold">{pokemon.name}</li>
-                        </ul>
+                            <div style={{width:"120px"}} className='container'>
+                                <ul>
+                                    <li className="text-capitalize font-weight-bold">{pokemon.name}</li>
+                                </ul>
+                            </div>
                         
                     )
                 })
