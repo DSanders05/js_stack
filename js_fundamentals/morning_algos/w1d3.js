@@ -1,6 +1,6 @@
 //Selection sort
 /*
-given an unsorted array, create a function that implement selection sort to sort the array. You are not allowed to create a new array and you have to modify the original input aray
+given an unsorted array, create a function that implement selection sort to sort the array. You are not allowed to create a new array and you have to modify the original input array
 
 https://www.hackerearth.com/practice/algorithms/sorting/selection-sort/visualize/
 */
