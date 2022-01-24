@@ -29,13 +29,13 @@ app.get("/api/hello",(req,res)=>{
 
 
 //get all quotes
-app.get("/api/quotes", (req,res)=>{
-    res.json({count: quotes.length, results: quotes })
+app.get("/api/quotes", (request,response)=>{
+    response.json({count: quotes.length, results: quotes })
 })
 
 //get one quote by "id"
-app.get("/api/quotes/:idx", (req,res)=>{
-    res.json({results: quotes[req.params.idx]});
+app.get("/api/quotes/:idx", (request,response)=>{
+    response.json({results: quotes[request.params.idx]});
 })
 
 //add a new quote
