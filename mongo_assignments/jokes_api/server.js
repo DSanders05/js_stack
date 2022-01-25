@@ -7,7 +7,7 @@ require("./server/config/jokes.config")
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-require('./server/routes/jokes.routes')(app)
+require('./server/routes/jokes.routes')(app)//importing functions through app variable to be called by server
 
 
 app.listen(port, () => console.log(`Listening on port: ${port}`))

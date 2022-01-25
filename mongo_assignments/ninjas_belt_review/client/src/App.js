@@ -1,5 +1,6 @@
 import './App.css';
 import NewNinjaForm from './components/NewNinjaForm';
+import AllNinjas from './components/AllNinjas';
 import {
 BrowserRouter, 
 Switch, 
@@ -22,7 +23,8 @@ function App() {
         <h1>Ninjas Belt Reviewer</h1>
         <Switch>
           <Route exact path="/">
-          <NewNinjaForm></NewNinjaForm>
+          <NewNinjaForm></NewNinjaForm><br></br>
+          <AllNinjas exact path="/api/ninjas"></AllNinjas>
           </Route>
         </Switch>
       </div>

@@ -1,8 +1,8 @@
-const mongoose = require('mongoose'); //import mongoose
+const mongoose = require('mongoose');
 
-const db_name = "projectsdb";
+const db_name = "ProjectsDB";
 
-mongoose.connect(`mongodb+srv://groot:groot@${db_name}.ahqsb.mongodb.net/ProjectsDB?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://groot:groot@projectsdb.ahqsb.mongodb.net/${db_name}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
