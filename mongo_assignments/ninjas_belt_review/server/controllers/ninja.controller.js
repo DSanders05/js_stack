@@ -45,3 +45,15 @@ module.exports.deleteNinja = (req,res) =>{
         })
         .catch(err=>res.json({message: 'Something went wrong', error:err}))
 }
+
+module.exports.findRandomNinja = (req,res)=>{
+    function getRandomInt(max){
+        return Math.floor(Math.random()*max)
+    }
+    Ninja.find()
+        .then(allNinjas=>{
+            let randomIndex = getRandomInt(allNinjas.length)
+            res.json({results: allNinjas[randomIndex]})
+        })
+        .catch(err=>res.json({message: 'Something went wrong', error:err}))
+}
