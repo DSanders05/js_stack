@@ -7,7 +7,7 @@ module.exports = (app)=>{
     
     app.get("/api/allProducts", ProductController.findAllProducts)
 
-    app.get("/api/product/:id", ProductController.findOneProduct)
+    app.get("/api/:id", ProductController.findOneProduct)
 
     app.put("/api/product/:id", ProductController.updateProduct)
 
