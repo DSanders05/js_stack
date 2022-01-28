@@ -9,7 +9,7 @@ module.exports = (app)=>{
 
     app.get("/api/:id", ProductController.findOneProduct)
 
-    app.put("/api/product/:id", ProductController.updateProduct)
+    app.put("/api/edit/:id", ProductController.updateProduct)
 
-    app.delete("/api/product/:id", ProductController.deleteProduct)
+    app.delete("/api/delete/:id", ProductController.deleteProduct)
 }

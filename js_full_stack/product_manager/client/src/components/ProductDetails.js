@@ -1,14 +1,26 @@
 import React, { useState, useEffect} from 'react';
 import { useParams } from "react-router";
+import {useHistory} from "react-router-dom";
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const ProductDetails = ()=>{
-    
+
+    const history = useHistory();
     const { id } = useParams();
     
     let [product, setProduct] = useState({})
+
+    const productDeleteHandler = (productId)=>{
+        console.log("delete function")
+        axios.delete(`http://localhost:8000/api/delete/${id}`)
+            .then(res=>{
+                console.log(res);
+                history.push("/")
+            })
+            .catch(err=>{console.log(err)})
+    }
 
     useEffect(()=>{
             axios.get(`http://localhost:8000/api/${id}`)
@@ -23,8 +35,9 @@ const ProductDetails = ()=>{
                     <h3>Details Page</h3>
                     <hr />
                     <h4>{product.title}</h4>
-                    <p>{product.price}</p>
+                    <p>&#x24;{product.price}</p>
                     <p>{product.description}</p>
+                    <button onClick={productDeleteHandler} className="btn btn-danger">Delete Product</button>
                 </div>
     )
 };

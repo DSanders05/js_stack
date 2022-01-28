@@ -1,6 +1,7 @@
 import './App.css';
 import NewProduct from './components/NewProduct';
 import ProductDetails from './components/ProductDetails';
+import EditProduct from './components/EditProduct';
 import {useState, useEffect} from 'react';
 import {
   BrowserRouter, 
@@ -12,7 +13,8 @@ import axios from 'axios';
 
 function App() {
 
-  let [productList, setProductList] = useState([])
+  let [productList, setProductList] = useState([]);
+  let [deleted, setDeleted] = useState(false);
 
   useEffect(()=>{
     axios.get("http://localhost:8000/api/allProducts")
@@ -21,7 +23,17 @@ function App() {
         console.log(productList)
       })
       .catch(err=>console.log(err))
-    },[])
+    },[deleted])
+
+    const deleteProduct = (productId)=>{
+      console.log("deleting from main page")
+      axios.delete(`http://localhost:8000/api/delete/${productId}`)
+        .then(res=>{
+          console.log(res)
+          setDeleted(!deleted)
+        })
+        .catch(err=>console.log(err))
+    }
 
 
   return (
@@ -37,11 +49,12 @@ function App() {
               {
                 productList.map((productObj, idx)=>{
                   return(
-                    <div key={idx} className='border border-dark'>
+                    <div key={idx} className='border border-dark container'>
                       <p>Title: <Link to={`/api/${productObj._id}`}>{productObj.title}</Link></p>
-                      <p>Price: {productObj.price}</p>
+                      <p>Price: &#x24;{productObj.price}</p>
                       <p>Description: {productObj.description}</p>
-                      <p>Item ID: {productObj._id}</p>
+                      <hr />
+                      <button onClick={deleteProduct} className="btn btn-danger mb-2">Delete Product</button> | <Link to={`/api/edit/${productObj._id}`} className='btn btn-warning mb-2'>Edit Product</Link>
                     </div>
                   )
                 })
@@ -50,6 +63,10 @@ function App() {
           </div>
         </Route>
         
+        <Route exact path="/api/edit/:id">
+          <EditProduct></EditProduct>
+        </Route>
+
         <Route exact path="/api/:id">
           <ProductDetails/>
         </Route>
